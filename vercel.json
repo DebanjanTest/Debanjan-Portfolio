@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/Debanjan-Portfolio/cv.html" }
+      { "source": "/", "destination": "/" }
     ]
 }
