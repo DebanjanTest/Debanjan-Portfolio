@@ -1,0 +1,327 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Mouse Tracking for Profile Tilt, Dynamic Glow, and Parallax Shapes
+  const heroAvatar = document.querySelector('.hero-avatar');
+  const cursorGlow = document.querySelector('.cursor-glow');
+  const bgColorLayer = document.querySelector('.bg-color-layer');
+  const sections = document.querySelectorAll('.section');
+  const parallaxElements = document.querySelectorAll('.parallax-wrap');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  // Cache/State variables to avoid layout thrashing in requestAnimationFrame
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+  let mouseX = windowWidth / 2;
+  let mouseY = windowHeight / 2;
+  let glowX = mouseX;
+  let glowY = mouseY;
+  let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Cache section offsets and sizes
+  let sectionOffsets = [];
+  function cacheSectionOffsets() {
+    sectionOffsets = [];
+    sections.forEach((sec) => {
+      sectionOffsets.push({
+        top: sec.offsetTop,
+        height: sec.offsetHeight
+      });
+    });
+  }
+
+  // Pre-parse speeds and link parent sections for logo/emoji parallax
+  parallaxElements.forEach((el) => {
+    el._speed = parseFloat(el.getAttribute('data-speed')) || 0.1;
+    const parent = el.closest('.section');
+    el._sectionIdx = Array.from(sections).indexOf(parent);
+  });
+
+  // Run initial cache population
+  cacheSectionOffsets();
+
+  // Re-cache offsets on window resize, along with viewport dimensions
+  window.addEventListener('resize', () => {
+    windowWidth = window.innerWidth;
+    windowHeight = window.innerHeight;
+    cacheSectionOffsets();
+  });
+
+  // Single unified render loop for all interactive coordinates (tilt, glow, scroll/mouse parallax)
+  function updateVisuals() {
+    // Smooth tilt effect for the hero profile image
+    if (heroAvatar) {
+      const rotateX = ((mouseY / windowHeight) - 0.5) * -30; 
+      const rotateY = ((mouseX / windowWidth) - 0.5) * 30; 
+      heroAvatar.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    // Lerped cursor glow movement
+    if (cursorGlow) {
+      glowX += (mouseX - glowX) * 0.08; 
+      glowY += (mouseY - glowY) * 0.08;
+      cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+    }
+
+    // Combined Scroll Parallax + Mouse Offset Parallax for Logo Cards
+    parallaxElements.forEach((el) => {
+      const speed = el._speed;
+      let yScrollOffset = 0;
+      
+      const secInfo = sectionOffsets[el._sectionIdx];
+      if (secInfo) {
+        // Calculate scroll relative to the parent section
+        const relativeScroll = scrollY - secInfo.top;
+        yScrollOffset = relativeScroll * speed;
+      } else {
+        yScrollOffset = scrollY * speed;
+      }
+      
+      // Calculate a subtle offset based on mouse position relative to center of the viewport
+      const xMouseOffset = ((mouseX / windowWidth) - 0.5) * -40 * Math.abs(speed);
+      const yMouseOffset = ((mouseY / windowHeight) - 0.5) * -40 * Math.abs(speed);
+      
+      el.style.transform = `translate3d(${xMouseOffset}px, ${yScrollOffset + yMouseOffset}px, 0)`;
+    });
+
+    requestAnimationFrame(updateVisuals);
+  }
+  updateVisuals();
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  window.addEventListener('scroll', () => {
+    scrollY = window.pageYOffset || document.documentElement.scrollTop;
+  }, { passive: true });
+
+  // 2. Scroll Reveal Animations (Intersection Observer)
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+
+  reveals.forEach(reveal => {
+    revealObserver.observe(reveal);
+  });
+
+  // 3. Smooth Scrolling for Navigation Links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // 4. Scroll-Based Theme Color Shifts
+  const sectionColors = {
+    'hero': '#0b1120',      // Deep Space Blue
+    'about': '#121212',     // Charcoal Dark
+    'services': '#0b1a1f',  // Dark Cyan
+    'projects': '#100b1a',  // Deep Purple
+    'experience': '#151515',// Dark Grey
+    'contact': '#000000'    // Pure Black
+  };
+
+  const colorOptions = {
+    threshold: 0.5 // Trigger when section is 50% visible
+  };
+
+  const colorObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        if (sectionColors[id]) {
+          // Change color of fixed bg-color-layer rather than body to prevent layout redraws
+          if (bgColorLayer) {
+            bgColorLayer.style.backgroundColor = sectionColors[id];
+          } else {
+            document.body.style.backgroundColor = sectionColors[id];
+          }
+          
+          // Update active nav link
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      }
+    });
+  }, colorOptions);
+
+  sections.forEach(section => {
+    colorObserver.observe(section);
+  });
+
+  // 5. Card Deck Shuffle Controller
+  const deck = document.querySelector('.project-deck');
+  if (deck) {
+    const cards = Array.from(deck.querySelectorAll('.project-card'));
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const indicators = document.querySelectorAll('.deck-indicators .indicator');
+    const N = cards.length;
+    let activeIndex = 0;
+    let isTransitioning = false;
+
+    function updateDeck() {
+      cards.forEach((card, i) => {
+        // Calculate the stacked position relative to the activeIndex
+        // 0 is active/top, N-1 is bottom/back
+        const position = (i - activeIndex + N) % N;
+        
+        // If a card is currently playing a fly-out/in animation, we let the keyframes govern its transforms
+        if (!card.classList.contains('shuffle-left') && 
+            !card.classList.contains('shuffle-right') && 
+            !card.classList.contains('shuffle-reverse')) {
+          card.setAttribute('data-position', position);
+        }
+      });
+
+      // Update active indicator dot
+      indicators.forEach((indicator, idx) => {
+        indicator.classList.toggle('active', idx === activeIndex);
+      });
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const currentActiveCard = cards[activeIndex];
+      currentActiveCard.classList.add('shuffle-left');
+
+      // Update active index
+      activeIndex = (activeIndex + 1) % N;
+      
+      // Update other cards immediately so they slide forward
+      updateDeck();
+
+      // Set the old active card to the bottom position immediately so it is in
+      // the correct base state when the animation class is removed
+      currentActiveCard.setAttribute('data-position', N - 1);
+
+      // Clean up after animation finishes
+      setTimeout(() => {
+        currentActiveCard.classList.remove('shuffle-left');
+        isTransitioning = false;
+      }, 600); // matches the 0.6s CSS animation duration
+    }
+
+    function prevSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      // The card at the bottom of the stack (which is about to become active)
+      // will fly in from behind and land on top
+      const nextActiveIndex = (activeIndex - 1 + N) % N;
+      const targetCard = cards[nextActiveIndex];
+
+      // Add reverse shuffle animation to the card sliding in
+      targetCard.classList.add('shuffle-reverse');
+      
+      // Set new active index
+      activeIndex = nextActiveIndex;
+      
+      // Update other cards immediately so they slide back
+      updateDeck();
+
+      // Set the new active card to position 0 immediately so it is in
+      // the correct base state when the animation class is removed
+      targetCard.setAttribute('data-position', 0);
+
+      setTimeout(() => {
+        targetCard.classList.remove('shuffle-reverse');
+        isTransitioning = false;
+      }, 600);
+    }
+
+    // Direct click on indicators
+    indicators.forEach((indicator) => {
+      indicator.addEventListener('click', (e) => {
+        if (isTransitioning) return;
+        const targetIndex = parseInt(e.target.getAttribute('data-slide'), 10);
+        if (targetIndex === activeIndex) return;
+
+        // Shuffle until we reach the target index
+        const diff = (targetIndex - activeIndex + N) % N;
+        if (diff === 1) {
+          nextSlide();
+        } else if (diff === N - 1) {
+          prevSlide();
+        } else {
+          // If jumping further, do a fast transition
+          isTransitioning = true;
+          activeIndex = targetIndex;
+          updateDeck();
+          // Force set position on all cards after a tiny delay
+          setTimeout(() => {
+            cards.forEach((c, idx) => {
+              const pos = (idx - activeIndex + N) % N;
+              c.setAttribute('data-position', pos);
+            });
+            isTransitioning = false;
+          }, 300);
+        }
+      });
+    });
+
+    // Clicking background cards shuffles them to the front
+    cards.forEach((card, index) => {
+      card.addEventListener('click', (e) => {
+        // If clicking inside the interactive launch button, do not shuffle
+        if (e.target.closest('.card-action-btn')) return;
+
+        const pos = parseInt(card.getAttribute('data-position'), 10);
+        if (pos > 0 && !isTransitioning) {
+          isTransitioning = true;
+          activeIndex = index;
+          updateDeck();
+          
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 600);
+        }
+      });
+    });
+
+    // Event Listeners for Controls
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto Shuffle every 6 seconds - pauses when user is hovering the deck
+    let autoShuffleInterval = setInterval(nextSlide, 6000);
+    
+    const container = document.querySelector('.project-deck-container');
+    if (container) {
+      container.addEventListener('mouseenter', () => {
+        clearInterval(autoShuffleInterval);
+      });
+      container.addEventListener('mouseleave', () => {
+        autoShuffleInterval = setInterval(nextSlide, 6000);
+      });
+    }
+
+    // Initialize positions
+    updateDeck();
+  }
+
+});

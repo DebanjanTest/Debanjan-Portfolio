@@ -1,215 +1,654 @@
-
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debanjan Mondal | Portfolio</title>
 
-  <body>
-    <div class="container">
-      <div class="profile">
-        <div class="profile_container">
-          <div class="profile_profileImg">
-            <img src="./images/profileImage.png" alt="shaif arfan" />
-          </div>
-          <div>
-            <h1 class="profile_name">
-              <span class="profile_name_firstName">Debanjan</span>
-              <span class="profile_name_lastName">Mondal</span>
-            </h1>
-            <p class="profile_title">
-              Graphics Designer / Web Developer Newbie
-            </p>
-            <p class="description profile_description">
-              Blending seasoned graphic design skills 
-              with an enthusiastic pursuit of web development.
-            </p>
-            <a class="downloadBtn" href="resume.pdf" download="Resume.pdf"
-              >Download Resume</a
-            >
-          </div>
-        </div>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Hardware-accelerated background color layer -->
+  <div class="bg-color-layer"></div>
+
+  <!-- Background Canvas Elements -->
+  <div id="bg-canvas">
+    <div class="bg-grid"></div>
+    <div class="cursor-glow"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ NAVIGATION BAR ═══════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-logo">DM</div>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="resume.pdf" download class="nav-cta">Download CV</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ HERO SECTION ═══════════════════════════════════════════ -->
+  <section id="hero" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="0.12" style="top: 15vh; left: 8%;">
+      <div class="logo-symbol ps-symbol float-3d-wobble-1">
+        <span class="logo-text font-ps">Ps</span>
       </div>
-      <div class="group-1">
-        <div class="skills">
-          <h3 class="title">Expertise</h3>
-          <ul class="skills_list description">
-            <li>HTML</li>
-            <li>Python</li>
-            <li>C programing</li>
-            <li>Photoshop</li>
-            <li>Illustrator</li>
-            <li>Canva</li>
-            <li>Figma</li>
-            <li>SQL</li>
-          </ul>
-        </div>
-
-        <div class="edu">
-          <h3 class="title">Education</h3>
-          <div class="edu_item">
-            <p class="item_preTitle">2023-2027</p>
-            <h4 class="item_title">BTech in CSE</h4>
-            <p class="item_subtitle">
-              University of Engineering And Management
-            </p>
-          </div>
-          <div class="edu_item">
-            <p class="item_preTitle">2023</p>
-            <h4 class="item_title">Class 12</h4>
-            <p class="item_subtitle">
-              GD Goenka Public School, Dakshineswar
-            </p>
-          </div>
-          <div class="edu_item">
-            <p class="item_preTitle">2021</p>
-            <h4 class="item_title">Class 10</h4>
-            <p class="item_subtitle">
-              Delhi Public School, North Kolkata
-            </p>
-          </div>
-        </div>
-
-        <div class="certification">
-          <h3 class="title">certification</h3>
-          <div class="certification_item">
-            <p class="item_preTitle">2024</p>
-            <h4 class="item_title">Advanced system security design Specialiation</h4>
-            <p class="description">
-              Advanced Secure System Design and Analysis Skills. 
-              Apply state of art techniques and tools to design, 
-              analyze, and implement critical cyber systems,
-            </p>
-          </div>
-          <div class="certification_item">
-            <p class="item_preTitle">2025</p>
-            <h4 class="item_title">Information Therory</h4>
-            <p class="description">
-              Completed a rigorous course based on Raymond Yeung's 'Information Theory and Network Coding,' 
-              mastering core principles like entropy, channel capacity, and source coding. 
-              Developed a strong foundation in the theoretical limits of communication systems.
-            </p>
-          </div>
-        </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.1" style="top: 35vh; left: 80%;">
+      <div class="logo-symbol adobe-symbol float-3d-wobble-1">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/>
+        </svg>
       </div>
-      <div class="group-2">
-        <div class="exp">
-          <h3 class="title">Experience</h3>
-          <div class="exp_item">
-            <p class="item_preTitle">2024</p>
-            <h4 class="item_title">Safire Consultants</h4>
-            <p class="item_subtitle">Graphics Designer</p>
-            <p class="description">
-              Handling clients and creating designs for their needs.
-              Collaborating with the team to create designs for various projects.
-              Working on a variety of projects, including social media graphics,
-              marketing materials, and brandin. Projests made on photoshop, Illustrator
-              Canva, Figma, Premier Pro and Final Cut Pro
-            </p>
-          </div>
-        </div>
-        <div class="awards">
-          <h3 class="title">Projects</h3>
-          <div class="awards_item">
-            <p class="item_preTitle">2023</p>
-              <h4 class="item_title">Compact RFID attendance system</h4>
-            <p class="description">
-              A compact RFID based attendance system, Which will register attendance space on card entry.
-              Also there will be multiple calculation based on attendance monitoring.
-            </p>
-          </div>
-          <div class="awards_item">
-            <p class="item_preTitle">2024</p>
-            <h4 class="item_title">Smart Home Management System</h4>
-            <p class="description">
-              Smart home management system based on Arduino and IoT. Which operates home appliances
-              From Remote locations using mobile application and being connected to home router.
-              The system is designed to be user-friendly and efficient,
-            </p>
-          </div>
-          <div class="awards_item">
-            <p class="item_preTitle">2025</p>
-            <a href="https://pdf-resize-ha79w2mws-debanjantests-projects.vercel.app"
-              ><h4 class="item_title">Automatic PDF Resizer</h4></a
-            >
-            <p class="description">
-              Automatic PDF resizer made based on HTML and CSS mainly taking in inputs 
-              of huge PDFs and shrinking exercise to smaller PDF in terms of pages by resizing 
-              multiple pages into single page, helping quick revision tips PDFs to be shrinked 
-              in size for smaller printing saving pages
-            </p>
-          </div>
-        </div>
-
-        <div class="interest">
-          <h3 class="title">Interest</h3>
-          <div class="interest_item">
-              <i data-feather="code"></i>
-              <span>Coding</span>
-            </div>
-          <div class="interest_items">
-            <div class="interest_item">
-              <i data-feather="music"></i>
-              <span>Music</span>
-            </div>
-            <div class="interest_item">
-              <i data-feather="video"></i>
-              <span>Video Editing</span>
-            </div>
-            <div class="interest_item">
-              <i data-feather="aperture"></i>
-              <span>Photo Editing</span>
-            </div>
-            <div class="interest_item">
-              <i data-feather="search"></i>
-              <span>Research</span>
-            </div>
-            <div class="interest_item">
-              <i data-feather="cpu"></i>
-              <span>Tech</span>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.18" style="top: 55vh; left: 10%;">
+      <span class="emoji-symbol float-3d-wobble-3">💻</span>
+    </div>
+    <div class="parallax-wrap" data-speed="0.22" style="top: 75vh; left: 82%;">
+      <div class="logo-symbol ai-symbol float-3d-wobble-2">
+        <span class="logo-text font-ai">Ai</span>
       </div>
-      <hr />
-      <div class="group-3">
-        <div class="contact">
-          <h3 class="title">Contact</h3>
-          <div class="contact_info">
-            <p class="description">Kolkata,India</p>
-            <p class="description">+91 964135649</p>
-            <p class="description">debanjanmondal8996@gmail.com</p>
+    </div>
+    <div class="parallax-wrap" data-speed="0.15" style="top: 92vh; left: 12%;">
+      <div class="logo-symbol canva-symbol float-3d-wobble-3">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-tagline">GRAPHICS DESIGNER &amp; WEB DEVELOPER</p>
+        <h1 class="hero-name">
+          <span class="first">Debanjan</span><br>
+          <span class="last">Mondal</span>
+        </h1>
+        <p class="hero-description">Blending seasoned graphic design skills with an enthusiastic pursuit of web development.</p>
+        <a href="#contact" class="btn-primary">Contact Me</a>
+      </div>
+      <div class="hero-image-container" id="hero-tilt">
+        <img 
+          src="images/3dProfileImage.png" 
+          alt="3D Profile Render" 
+          class="hero-avatar">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ ABOUT SECTION ═══════════════════════════════════════════ -->
+  <section id="about" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="0.2" style="top: 10vh; left: 80%;">
+      <span class="emoji-symbol float-3d-wobble-2">🎨</span>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.08" style="top: 32vh; left: 10%;">
+      <div class="logo-symbol react-symbol float-3d-spin">
+        <svg viewBox="0 0 841.9 738.9" class="svg-logo">
+          <g fill="none" stroke="#61dafb" stroke-width="28">
+            <ellipse rx="387" ry="152" transform="matrix(1 0 0 1 420.95 369.45)"/>
+            <ellipse rx="387" ry="152" transform="matrix(.5 .866 -.866 .5 420.95 369.45)"/>
+            <ellipse rx="387" ry="152" transform="matrix(.5 -.866 .866 .5 420.95 369.45)"/>
+          </g>
+          <circle cx="420.95" cy="369.45" r="58" fill="#61dafb"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.12" style="top: 55vh; left: 84%;">
+      <div class="logo-symbol notion-symbol float-3d-wobble-4">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.14" style="top: 78vh; left: 12%;">
+      <div class="logo-symbol java-symbol float-3d-wobble-4">
+        <svg viewBox="0 0 100 100" class="svg-logo">
+          <path d="M42 20 C42 12 48 10 46 2 C44 2 38 4 38 12 C38 20 44 22 42 30" fill="none" stroke="#E32F33" stroke-width="3" stroke-linecap="round"/>
+          <path d="M52 22 C52 14 58 12 56 4 C54 4 48 6 48 14 C48 22 54 24 52 32" fill="none" stroke="#FFE873" stroke-width="3" stroke-linecap="round"/>
+          <path d="M30 35 L70 35 C70 35 72 58 64 68 C58 75 42 75 36 68 C28 58 30 35 30 35 Z" fill="#E32F33"/>
+          <path d="M70 42 C78 42 82 48 80 54 C78 60 70 60 70 60" fill="none" stroke="#E32F33" stroke-width="6" stroke-linecap="round"/>
+          <path d="M22 75 L78 75 C82 75 82 80 78 80 L22 80 C18 80 18 75 22 75 Z" fill="#FFF"/>
+        </svg>
+      </div>
+    </div>
+    <div class="section-inner reveal">
+      <h2 class="section-heading">ABOUT ME</h2>
+      <div class="about-grid">
+        <p class="about-text">
+          I'm <strong>Debanjan Mondal</strong>, a passionate <em>Graphics Designer</em> and aspiring <em>Web Developer</em> based in Kolkata, India. Currently pursuing a B.Tech in Computer Science &amp; Engineering at the University of Engineering And Management (2023-2027), I bring a unique blend of creative design thinking and technical problem-solving to every project I tackle. 
+        </p>
+        <div class="about-stats">
+          <div class="stat-box">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Years of Design</span>
           </div>
-        </div>
-        <div class="social">
-          <h3 class="title">Socials</h3>
-          <div class="social_items">
-            <a href="https://github.com/DebanjanTest" target="https://github.com/dashboard" class="social_item">
-              <i data-feather="github"></i>
-              <span>/github- "DebanjanTest"</span>
-            </a>
-            <a href="https://wa.me/qr/6PGZ2KS5JJYTJ1" target="_blank" class="social_item">
-              <i data-feather="phone"></i>
-              <span>/Whatsapp- "9641356749"</span>
-            </a>
-            <a href="https://www.instagram.com/_debanjan_mondal2005_?igsh=MTZucXBhcjNiczJ2Mg==" target="_blank" class="social_item">
-              <i data-feather="instagram"></i>
-              <span>/Instagram- "_debanjan_mondal2005_"</span>
-            </a>
-            <a href="https://www.linkedin.com/in/debanjan-mondal8996/" target="_blank" class="social_item">
-              <i data-feather="linkedin"></i>
-              <span>/LinkedIn:- "debanjan-mondal8996"</span>
-            </a>
+          <div class="stat-box">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Web Projects</span>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      feather.replace();
-    </script>
-  </body>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SERVICES / EXPERTISE SECTION ═══════════════════════════════════════════ -->
+  <section id="services" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="-0.12" style="top: 10vh; left: 82%;">
+      <div class="logo-symbol js-symbol float-3d-wobble-3">
+        <span class="logo-text font-js">JS</span>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.16" style="top: 32vh; left: 8%;">
+      <span class="emoji-symbol float-3d-wobble-1">🚀</span>
+    </div>
+    <div class="parallax-wrap" data-speed="0.12" style="top: 55vh; left: 80%;">
+      <div class="logo-symbol nextjs-symbol float-3d-wobble-4">
+        <span class="logo-text font-next">N</span>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.18" style="top: 80vh; left: 10%;">
+      <div class="logo-symbol blender-symbol float-3d-wobble-2">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/>
+        </svg>
+      </div>
+    </div>
+    <div class="section-inner reveal">
+      <h2 class="section-heading">EXPERTISE</h2>
+      
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <i data-feather="code" class="card-icon"></i>
+          <h3>Development</h3>
+          <p>HTML, Python, C Programming, SQL</p>
+        </div>
+        <div class="expertise-card">
+          <i data-feather="pen-tool" class="card-icon"></i>
+          <h3>Design</h3>
+          <p>Photoshop, Illustrator, Canva, Figma</p>
+        </div>
+        <div class="expertise-card">
+          <i data-feather="book-open" class="card-icon"></i>
+          <h3>Education</h3>
+          <p>BTech in CSE (UEM) 2023-2027</p>
+        </div>
+        <div class="expertise-card">
+          <i data-feather="award" class="card-icon"></i>
+          <h3>Certifications</h3>
+          <p>Advanced System Security, Info Theory</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ PROJECTS SECTION ═══════════════════════════════════════════ -->
+  <section id="projects" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="0.16" style="top: 10vh; left: 84%;">
+      <div class="logo-symbol ae-symbol float-3d-wobble-1">
+        <span class="logo-text font-ae">Ae</span>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.15" style="top: 30vh; left: 12%;">
+      <span class="emoji-symbol float-3d-wobble-4">⚡</span>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.08" style="top: 50vh; left: 80%;">
+      <div class="logo-symbol androidstudio-symbol float-3d-wobble-3">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M19.2693 10.3368c-.3321 0-.6026.2705-.6026.6031v9.8324h-1.7379l-3.3355-6.9396c.476-.5387.6797-1.286.5243-2.0009a2.2862 2.2862 0 0 0-1.2893-1.6248v-.8124c.0121-.2871-.1426-.5787-.4043-.7407-.1391-.0825-.2884-.1234-.4402-.1234a.8478.8478 0 0 0-.4318.1182c-.2701.1671-.4248.4587-.4123.7662l-.0003.721c-1.0149.3668-1.6619 1.4153-1.4867 2.5197a2.282 2.282 0 0 0 .5916 1.2103l-3.2096 6.9064H4.0928c-1.0949-.007-1.9797-.8948-1.9832-1.9896V5.016c-.0055 1.1024.8836 2.0006 1.9859 2.0062a2.024 2.024 0 0 0 .1326-.0037h14.7453s2.5343-.2189 2.8619 1.5392c-.2491.0287-.4449.2321-.4449.4889 0 .7115-.5791 1.2901-1.3028 1.2901h-.8183zM17.222 22.5366c.2347.4837.0329 1.066-.4507 1.3007-.1296.0629-.2666.0895-.4018.0927a.9738.9738 0 0 1-.3194-.0455c-.024-.0078-.046-.0209-.0694-.0305a.9701.9701 0 0 1-.2277-.1321c-.0247-.0192-.0495-.038-.0724-.0598-.0825-.0783-.1574-.1672-.21-.2757l-1.2554-2.6143-1.5585-3.2452a.7725.7725 0 0 0-.6995-.4443h-.0024a.792.792 0 0 0-.7083.4443l-1.5109 3.2452-1.2321 2.6464a.9722.9722 0 0 1-.7985.5795c-.0626.0053-.1238-.0024-.185-.0087-.0344-.0036-.069-.0053-.1025-.0124-.0489-.0103-.0954-.0278-.142-.0452-.0301-.0113-.0613-.0197-.0901-.0339-.0496-.0244-.0948-.0565-.1397-.0889-.0217-.0156-.0457-.0275-.0662-.045a.9862.9862 0 0 1-.1695-.1844.9788.9788 0 0 1-.0708-.9852l.8469-1.8223 3.2676-7.0314a1.7964 1.7964 0 0 1-.7072-1.1637c-.1555-.9799.5129-1.9003 1.4928-2.0559V9.3946a.3542.3542 0 0 1 .1674-.3155.3468.3468 0 0 1 .3541 0 .354.354 0 0 1 .1674.3155v1.159l.0129.0064a1.8028 1.8028 0 0 1 1.2878 1.378 1.7835 1.7835 0 0 1-.6439 1.7836l3.3889 7.0507.8481 1.7643zM12.9841 12.306c.0042-.6081-.4854-1.1044-1.0935-1.1085a1.1204 1.1204 0 0 0-.7856.3219 1.101 1.101 0 0 0-.323.7716c-.0042.6081.4854 1.1044 1.0935 1.1085h.0077c.6046 0 1.0967-.488 1.1009-1.0935zm-1.027 5.2768c-.1119.0005-.2121.0632-.2571.1553l-1.4127 3.0342h3.3733l-1.4564-3.0328a.274.274 0 0 0-.2471-.1567zm8.1432-6.7459l-.0129-.0001h-.8177a.103.103 0 0 0-.103.103v12.9103a.103.103 0 0 0 .0966.103h.8435c.9861-.0035 1.7836-.804 1.7836-1.79V9.0468c0 .9887-.8014 1.7901-1.7901 1.7901zM2.6098 5.0161v.019c.0039.816.6719 1.483 1.4874 1.4869a12.061 12.061 0 0 1 .1309-.0034h1.1286c.1972-1.315.7607-2.525 1.638-3.4859H4.0993c-.9266.0031-1.6971.6401-1.9191 1.4975.2417.0355.4296.235.4296.4859zm6.3381-2.8977L7.9112.3284a.219.219 0 0 1 0-.2189A.2384.2384 0 0 1 8.098 0a.219.219 0 0 1 .1867.1094l1.0496 1.8158a6.4907 6.4907 0 0 1 5.3186 0L15.696.1094a.2189.2189 0 0 1 .3734.2189l-1.0302 1.79c1.6671.9125 2.7974 2.5439 3.0975 4.4018l-12.286-.0014c.3004-1.8572 1.4305-3.488 3.0972-4.4003zm5.3774 2.6202a.515.515 0 0 0 .5271.5028.515.515 0 0 0 .5151-.5151.5213.5213 0 0 0-.8885-.367.5151.5151 0 0 0-.1537.3793zm-5.7178-.0067a.5151.5151 0 0 0 .5207.5095.5086.5086 0 0 0 .367-.1481.5215.5215 0 1 0-.734-.7341.515.515 0 0 0-.1537.3727z"/>
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.1" style="top: 70vh; left: 8%;">
+      <div class="logo-symbol davinci-symbol float-3d-wobble-2">
+        <svg viewBox="0 0 100 100" class="svg-logo">
+          <circle cx="50" cy="50" r="14" fill="rgba(255,255,255,0.4)"/>
+          <path d="M50 14 C65 14 78 24 78 40 C78 50 70 56 60 56 C50 56 46 48 46 40 C46 30 50 14 50 14 Z" fill="#FF3b30"/>
+          <path d="M19 68 C11 56 15 40 28 33 C37 28 47 31 52 40 C57 48 53 56 45 61 C37 66 19 68 19 68 Z" fill="#34c759"/>
+          <path d="M81 68 C73 80 57 84 44 77 C35 72 32 62 38 54 C43 46 51 45 59 49 C67 54 81 68 81 68 Z" fill="#007aff"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.2" style="top: 90vh; left: 82%;">
+      <div class="logo-symbol affinity-symbol float-3d-wobble-3">
+        <svg viewBox="0 0 100 100" class="svg-logo">
+          <defs>
+            <linearGradient id="affGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00D2FF"/>
+              <stop offset="50%" stop-color="#9B51E0"/>
+              <stop offset="100%" stop-color="#F2C94C"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L95 50 L50 95 L5 50 Z" fill="url(#affGrad)" opacity="0.95"/>
+          <path d="M50 20 L80 50 L50 80 L20 50 Z" fill="#0c1120" />
+          <path d="M50 35 L65 50 L50 65 L35 50 Z" fill="url(#affGrad)" />
+        </svg>
+      </div>
+    </div>
+    <div class="section-inner">
+      <div class="projects-header reveal">
+        <h2 class="section-heading glow-text">PROJECTS</h2>
+        <p class="section-subheading">A selection of my recent development and design projects.</p>
+      </div>
+      
+      <div class="project-deck-container reveal">
+        <div class="project-deck">
+          
+          <!-- Card 1 (AudioTune-AI) -->
+          <div class="project-card" data-index="0" data-position="0">
+            <div class="card-media">
+              <iframe src="https://audio-tune-ai.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">AudioTune-AI</h3>
+              <p class="card-desc">An AI-powered audio processing application built for audio analysis and manipulation.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">Gemini AI</span>
+              </div>
+              <a href="https://audio-tune-ai.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 (CV Builder) -->
+          <div class="project-card" data-index="1" data-position="1">
+            <div class="card-media">
+              <iframe src="https://cv-chi-tawny.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">CV Builder</h3>
+              <p class="card-desc">Personalised CV Building System with drag-and-drop template features.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">HTML5</span>
+              </div>
+              <a href="https://cv-chi-tawny.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 (Desk Clock) -->
+          <div class="project-card" data-index="2" data-position="2">
+            <div class="card-media">
+              <iframe src="https://desk-clock-two.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Desk Clock</h3>
+              <p class="card-desc">Interactive Desk Clock Interface using minimalist design principles.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS Animations</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <a href="https://desk-clock-two.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 (PersonaLearn) -->
+          <div class="project-card" data-index="3" data-position="3">
+            <div class="card-media">
+              <iframe src="https://persona-learn.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">PersonaLearn</h3>
+              <p class="card-desc">Personal learning system matching student styles with AI study plans.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">Next.js</span>
+              </div>
+              <a href="https://persona-learn.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5 (Class Summariser) -->
+          <div class="project-card" data-index="4" data-position="4">
+            <div class="card-media">
+              <iframe src="https://class-summeriser.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Class Summariser</h3>
+              <p class="card-desc">Summarizes lecture audios and transcripts into clean revision notes.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">Gemini API</span>
+              </div>
+              <a href="https://class-summeriser.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6 (cybermorse-trainer-v2) -->
+          <div class="project-card" data-index="5" data-position="5">
+            <div class="card-media">
+              <iframe src="https://cybermorse-trainer-v2.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">CyberMorse Trainer</h3>
+              <p class="card-desc">Interactive web-based Morse code training application featuring the Koch method.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">Web Audio</span>
+              </div>
+              <a href="https://cybermorse-trainer-v2.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 7 (Ontology Dashboard) -->
+          <div class="project-card" data-index="6" data-position="6">
+            <div class="card-media">
+              <iframe src="https://ontology-dashboard-sooty.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Ontology Dashboard</h3>
+              <p class="card-desc">Data visualization dashboard for biological ontologies and entity hierarchies.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">Cytoscape.js</span>
+                <span class="tech-badge">Python</span>
+              </div>
+              <a href="https://ontology-dashboard-sooty.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 8 (PDF Resize) -->
+          <div class="project-card" data-index="7" data-position="7">
+            <div class="card-media">
+              <iframe src="https://pdf-resize.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">PDF Resize</h3>
+              <p class="card-desc">Lightweight client-side tool to resize, crop, and compress PDF documents.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">PDF.js</span>
+                <span class="tech-badge">CSS3</span>
+              </div>
+              <a href="https://pdf-resize.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 9 (Argumented_reality) -->
+          <div class="project-card" data-index="8" data-position="8">
+            <div class="card-media">
+              <iframe src="https://argumented-reality-mauve.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">AR Web</h3>
+              <p class="card-desc">Augmented Reality experiments rendered directly on web browsers.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">AR.js</span>
+                <span class="tech-badge">Three.js</span>
+                <span class="tech-badge">WebXR</span>
+              </div>
+              <a href="https://argumented-reality-mauve.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 10 (Citadel Test) -->
+          <div class="project-card" data-index="9" data-position="9">
+            <div class="card-media">
+              <iframe src="https://citadel-test.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Citadel Test</h3>
+              <p class="card-desc">Hackathon landing page and testing suite for Citadel challenges.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">Framer Motion</span>
+              </div>
+              <a href="https://citadel-test.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 11 (Graphics Portfolio) -->
+          <div class="project-card" data-index="10" data-position="10">
+            <div class="card-media">
+              <iframe src="https://graphics-portfolio-nine.vercel.app" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Graphics Portfolio</h3>
+              <p class="card-desc">Creative portfolio showcasing Photoshop, Illustrator, and branding works.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS Grid</span>
+                <span class="tech-badge">Vanilla JS</span>
+                <span class="tech-badge">Design</span>
+              </div>
+              <a href="https://graphics-portfolio-nine.vercel.app" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 12 (Persona AI) -->
+          <div class="project-card" data-index="11" data-position="11">
+            <div class="card-media">
+              <iframe src="https://chat-aur-chai.vercel.app/" loading="lazy" scrolling="no"></iframe>
+              <div class="card-iframe-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title">Persona AI</h3>
+              <p class="card-desc">Chat with custom-tuned AI personas trained on specific creator videos.</p>
+              <div class="tech-stack">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Tailwind</span>
+                <span class="tech-badge">LLM</span>
+              </div>
+              <a href="https://chat-aur-chai.vercel.app/" target="_blank" class="card-action-btn">
+                Launch App <i data-feather="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="deck-controls">
+          <button class="deck-btn prev-btn" aria-label="Previous project">
+            <i data-feather="chevron-left"></i>
+          </button>
+          <div class="deck-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+            <span class="indicator" data-slide="5"></span>
+            <span class="indicator" data-slide="6"></span>
+            <span class="indicator" data-slide="7"></span>
+            <span class="indicator" data-slide="8"></span>
+            <span class="indicator" data-slide="9"></span>
+            <span class="indicator" data-slide="10"></span>
+            <span class="indicator" data-slide="11"></span>
+          </div>
+          <button class="deck-btn next-btn" aria-label="Next project">
+            <i data-feather="chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ EXPERIENCE & INTERESTS SECTION ═══════════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="0.14" style="top: 10vh; left: 84%;">
+      <div class="logo-symbol android-symbol float-3d-wobble-4">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.14" style="top: 30vh; left: 10%;">
+      <div class="logo-symbol python-symbol float-3d-wobble-4">
+        <svg viewBox="0 0 110 110" class="svg-logo">
+          <path d="M55 2.5C40.6 2.5 32.5 8.7 32.5 22.5h15c0-6.2 3.8-10 11.2-10 7.5 0 11.3 3.8 11.3 10v10H42.5c-10 0-17.5 7.5-17.5 17.5v22.5c0 10 7.5 17.5 17.5 17.5h10V75c0-7.5 3.8-11.2 11.2-11.2h22.5c6.2 0 11.3-5 11.3-11.3V22.5C98.8 8.7 90.6 2.5 76.2 2.5H55z" fill="#3776AB"/>
+          <path d="M55 107.5c14.4 0 22.5-6.2 22.5-20H62.5c0 6.2-3.8 10-11.2 10-7.5 0-11.3-3.8-11.3-10v-10h27.5c10 0 17.5-7.5 17.5-17.5V42.5c0-10-7.5-17.5-17.5-17.5h-10v15c0 7.5-3.8 11.2-11.2 11.2H25c-6.2 0-11.2 5-11.2 11.3v30c0 13.8 8.1 20 22.5 20H55z" fill="#FFE873"/>
+          <circle cx="41.25" cy="18.75" r="3.75" fill="#FFF"/>
+          <circle cx="68.75" cy="91.25" r="3.75" fill="#111"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.15" style="top: 55vh; left: 78%;">
+      <span class="emoji-symbol float-3d-wobble-3">✍️</span>
+    </div>
+    <div class="parallax-wrap" data-speed="0.22" style="top: 80vh; left: 12%;">
+      <div class="logo-symbol html-symbol float-3d-wobble-1">
+        <svg viewBox="0 0 512 512" class="svg-logo">
+          <path d="M108.4 0h295.2L367 447.8 256 478.6l-111-30.8L108.4 0z" fill="#E34F26"/>
+          <path d="M256 33.5v412.3l85.2-23.7 28-316.5H256z" fill="#F06529"/>
+          <path d="M256 160h-64v32h64v32h-64v-64h96l-8-32H152v128h104v-96z" fill="#EBEBEB"/>
+          <path d="M256 128h82.5l-7.7 87.2-26.8 74.3-48 13.3V271l31.5-8.8 13.4-38.2 4-44h-49V128z" fill="#FFF"/>
+        </svg>
+      </div>
+    </div>
+    <div class="section-inner reveal">
+      <h2 class="section-heading">EXPERIENCE</h2>
+      <div class="experience-list">
+        <div class="experience-card">
+          <span class="experience-year">2024</span>
+          <h3 class="experience-role">Graphics Designer</h3>
+          <p class="experience-company">Safire Consultants</p>
+        </div>
+      </div>
+      
+      <div class="interests-container">
+        <h3>INTERESTS</h3>
+        <div class="interests-grid">
+          <span class="interest-tag">Coding</span>
+          <span class="interest-tag">Music</span>
+          <span class="interest-tag">Video Editing</span>
+          <span class="interest-tag">Photo Editing</span>
+          <span class="interest-tag">Research</span>
+          <span class="interest-tag">Tech</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ CONTACT SECTION ═══════════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <!-- Background Logos & Emojis -->
+    <div class="parallax-wrap" data-speed="-0.12" style="top: 10vh; left: 76%;">
+      <div class="logo-symbol google-symbol float-3d-wobble-2">
+        <svg viewBox="0 0 24 24" class="svg-logo">
+          <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="0.1" style="top: 30vh; left: 8%;">
+      <div class="logo-symbol css-symbol float-3d-wobble-3">
+        <svg viewBox="0 0 512 512" class="svg-logo">
+          <path d="M71.357 460.819L30.272 0h451.456l-41.129 460.746L255.724 512z" fill="#1572B6"/>
+          <path d="M405.388 431.408l35.148-393.73H256v435.146z" fill="#33A9DC"/>
+          <path d="M124.46 208.59l5.065 56.517H256V208.59zM119.419 150.715H256V94.197H114.281zM256 355.372l-.248.066-62.944-16.996-4.023-45.076h-56.736l7.919 88.741 115.772 32.14.26-.073z" fill="#EBEBEB"/>
+          <path d="M255.805 208.59v56.517H325.4l-6.56 73.299-63.035 17.013v58.8l115.864-32.112.85-9.549 13.28-148.792 1.38-15.176 10.203-114.393H255.805v56.518h79.639L330.3 208.59z" fill="#FFF"/>
+        </svg>
+      </div>
+    </div>
+    <div class="parallax-wrap" data-speed="-0.08" style="top: 50vh; left: 82%;">
+      <span class="emoji-symbol float-3d-wobble-2">✨</span>
+    </div>
+    <div class="parallax-wrap" data-speed="0.2" style="top: 75vh; left: 12%;">
+      <div class="logo-symbol antigravity-symbol float-3d-wobble-1">
+        <span class="logo-text font-ag">Ag</span>
+      </div>
+    </div>
+    <div class="contact-container reveal">
+      <div class="contact-info">
+        <h2 class="section-heading">LET'S GET<br>IN TOUCH</h2>
+        <p class="contact-location"><i data-feather="map-pin"></i> Kolkata, India</p>
+        <p class="contact-phone"><i data-feather="phone"></i> +91 9641356749</p>
+        <a href="mailto:debanjanmondal8996@gmail.com" class="contact-email">debanjanmondal8996@gmail.com</a>
+        <div class="social-links">
+          <a href="https://github.com/DebanjanTest" target="_blank"><i data-feather="github"></i></a>
+          <a href="https://www.linkedin.com/in/debanjan-mondal8996/" target="_blank"><i data-feather="linkedin"></i></a>
+          <a href="https://www.instagram.com/_debanjan_mondal2005_?igsh=MTZucXBhcjNiczJ2Mg==" target="_blank"><i data-feather="instagram"></i></a>
+          <a href="https://wa.me/qr/6PGZ2KS5JJYTJ1" target="_blank"><i data-feather="message-circle"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" autocomplete="off">
+        <input type="text" name="name" placeholder="Full Name*" required>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email*" required>
+          <input type="tel" name="phone" placeholder="Phone">
+        </div>
+        <textarea name="message" placeholder="Message" rows="5"></textarea>
+        <button type="submit" class="btn-primary">SEND</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Debanjan Mondal. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>feather.replace();</script>
+</body>
 </html>
